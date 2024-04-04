@@ -1,0 +1,77 @@
+{
+  "name": "@5nafu/testing-integ-runner",
+  "description": "Just a test on how to call an URL with the integ runner",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:5nafu/cdk-integ-runner.git"
+  },
+  "scripts": {
+    "integ-test": "rm test-integ-tests/cdk.context.json; integ-runner --directory ./test-integ-tests --parallel-regions eu-central-1",
+    "integ-test-update": "rm -r test-integ-tests/cdk.context.json integ-tests/integ.demo.ts.snapshot; integ-runner --directory ./test-integ-tests --parallel-regions eu-central-1 --update-on-failed"
+  },
+  "author": {
+    "name": "Tobias Vollmer",
+    "email": "tobias.vollmer@idealo.de"
+  },
+  "dependencies": {
+    "source-map-support": "0.5.21"
+  },
+  "devDependencies": {
+    "@aws-cdk/integ-runner": "2.135.0-alpha.0",
+    "@aws-cdk/integ-tests-alpha": "2.135.0-alpha.0",
+    "aws-cdk": "2.135.0",
+    "aws-cdk-lib": "2.135.0",
+    "ts-jest": "29.1.1",
+    "ts-node": "10.9.1"
+  },
+  "peerDependencies": {
+    "aws-cdk-lib": "^2.135.0"
+  },
+  "keywords": [
+    "cdk"
+  ],
+  "engines": {
+    "node": ">= 18.0.0"
+  },
+  "main": "lib/index.js",
+  "files": [
+    "lib/**/*"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "version": "0.0.0",
+  "jest": {
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.ts?(x)",
+      "<rootDir>/(test|src)/**/*(*.)@(spec|test).ts?(x)"
+    ],
+    "clearMocks": true,
+    "collectCoverage": true,
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "clover",
+      "cobertura",
+      "text"
+    ],
+    "coverageDirectory": "coverage",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "watchPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "preset": "ts-jest",
+    "globals": {
+      "ts-jest": {
+        "tsconfig": "tsconfig.dev.json"
+      }
+    }
+  },
+  "types": "lib/index.d.ts",
+  "stability": "stable"
+}
