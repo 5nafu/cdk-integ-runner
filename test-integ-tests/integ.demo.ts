@@ -5,12 +5,5 @@ const testStack = new Stack(app, 'integTestStack', {});
 const integ = new IntegTest(app, 'BaseIntegrationTest', {
   testCases: [testStack] });
 
-const call = integ.assertions.httpApiCall(
-  'https://httpbin.org/get',
-  {}
-)
-call.expect( 
-  ExpectedResult.objectLike({
-    status: 200,
-  })
-);
+const call = integ.assertions.awsApiCall('S3', 'listBuckets')
+call.expect(ExpectedResult.objectLike({}));
