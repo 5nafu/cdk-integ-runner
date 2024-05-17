@@ -7,7 +7,7 @@
   },
   "scripts": {
     "integ-test": "rm test-integ-tests/cdk.context.json; integ-runner --directory ./test-integ-tests --parallel-regions eu-central-1",
-    "integ-test-update": "rm -r test-integ-tests/cdk.context.json integ-tests/integ.demo.ts.snapshot; integ-runner --directory ./test-integ-tests --parallel-regions eu-central-1 --update-on-failed"
+    "integ-test-update": "rm -r test-integ-tests/cdk.context.json test-integ-tests/integ.demo.ts.snapshot; integ-runner --directory ./test-integ-tests --parallel-regions eu-central-1 --update-on-failed"
   },
   "author": {
     "name": "Tobias Vollmer",
